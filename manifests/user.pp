@@ -7,7 +7,7 @@ define rabbitmq::user (
   $version             = $rabbitmq::version,
   $service_autorestart = $rabbitmq::bool_service_autorestart,
   $package             = $rabbitmq::package,
-  $enseure             = 'present',
+  $ensure              = 'present',
   ) {
 
   if $enseure == 'absent' {
