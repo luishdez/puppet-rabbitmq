@@ -15,14 +15,14 @@ define rabbitmq::permissions (
 
   if $enseure == 'absent' {
 
-    exec { "rabbitmq-user-$name":
+    exec { "rabbitmq-permissions-$name":
       command => "rabbitmqctl clear_permissions $vhost_option $name",
       require => Package[$package],
     }
 
   } else {
 
-    exec { "rabbitmq-user-$name":
+    exec { "rabbitmq-permissions-$name":
       command => "rabbitmqctl set_permissions $name \"$conf\" \"$write\" \"$read\"",
       require => Package[$package],
     }
