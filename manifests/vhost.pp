@@ -7,14 +7,14 @@ define rabbitmq::vhost (
 
   if $enseure == 'absent' {
 
-    exec { "rabbitmq-user-$name":
+    exec { "rabbitmq-vhost-$name":
       command => "rabbitmqctl delete_vhost $name",
       require => Package[$package],
     }
 
   } else {
 
-    exec { "rabbitmq-user-$name":
+    exec { "rabbitmq-vhost-$name":
       command => "rabbitmqctl add_vhost $name",
       require => Package[$package],
     }
