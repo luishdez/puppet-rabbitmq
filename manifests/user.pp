@@ -10,7 +10,7 @@ define rabbitmq::user (
   $ensure              = 'present',
   ) {
 
-  if $enseure == 'absent' {
+  if $ensure == 'absent' {
 
     exec { "rabbitmq-user-$name":
       command => "rabbitmqctl delete_user $name",
