@@ -9,8 +9,9 @@ define rabbitmq::permissions (
   $package             = $rabbitmq::package,
   ) {
 
-  if $vhost {
-    $vhost_option = "-p $vhost";
+  $vhost_option = $vhost ? {
+    true  => "-p $vhost";
+    false => '',
   }
 
   if $enseure == 'absent' {
