@@ -2,7 +2,7 @@
 #
 #
 define rabbitmq::user (
-  $password,
+  $password            = '',
   $tags                = '',
   $version             = $rabbitmq::version,
   $service_autorestart = $rabbitmq::bool_service_autorestart,
