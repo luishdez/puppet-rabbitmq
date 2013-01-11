@@ -3,10 +3,11 @@
 #
 define rabbitmq::user (
   $password,
-  $tags                = false,
+  $tags                = '',
   $version             = $rabbitmq::version,
   $service_autorestart = $rabbitmq::bool_service_autorestart,
   $package             = $rabbitmq::package,
+  $enseure             = 'present',
   ) {
 
   if $enseure == 'absent' {
@@ -23,7 +24,7 @@ define rabbitmq::user (
       require => Package[$package],
     }
 
-    if $tags {
+    if $tags != '' {
       exec { "rabbitmq-user-tags-$name":
         command => "rabbitmqctl set_user_tags $name $tags",
         require => Package[$package],

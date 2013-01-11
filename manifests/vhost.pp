@@ -2,7 +2,8 @@
 #
 #
 define rabbitmq::vhost (
-  $package             = $rabbitmq::package,
+  $package = $rabbitmq::package,
+  $enseure = 'present',
   ) {
 
   if $enseure == 'absent' {

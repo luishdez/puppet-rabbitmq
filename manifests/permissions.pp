@@ -2,11 +2,12 @@
 #
 #
 define rabbitmq::permissions (
-  $vhost               = false,
-  $conf                = "^$name-.*",
-  $write               = ".*",  
-  $read                = ".*",
-  $package             = $rabbitmq::package,
+  $vhost   = false,
+  $conf    = "^$name-.*",
+  $write   = ".*",  
+  $read    = ".*",
+  $package = $rabbitmq::package,
+  $enseure = 'present',
   ) {
 
   $vhost_option = $vhost ? {
