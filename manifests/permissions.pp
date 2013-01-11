@@ -11,7 +11,7 @@ define rabbitmq::permissions (
   ) {
 
   $vhost_option = $vhost ? {
-    true  => "-p $vhost";
+    true  => "-p $vhost",
     false => '',
   }
 
